@@ -4,20 +4,14 @@ pipeline {
   tools {nodejs "nodejs16.16.0"}
     
   stages {
-      
-   
-    stage('Build') {
+
+    stage('Unit') {
       steps {
-        sh 'npm install'
-         sh '<<Build Command>>'
+        checkout scm
+        sh 'node -v' // 8.10.0
+        sh 'npm -v' // 5.6.0
+        sh 'npm install' // <-- desired change: 'yarn install'
+        sh 'npm run test:unit' // <-- desired change: 'yarn test:unit'
       }
-    }  
-    
-            
-    stage('Test') {
-      steps {
-        sh 'node test'
-      }
-    }
   }
 }
