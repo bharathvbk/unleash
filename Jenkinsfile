@@ -5,9 +5,9 @@ pipeline {
     
   stages {
         
-    stage('Git') {
-      steps {
-        git 'https://github.com/bharathvbk/unleash'
+    //stage('Git') {
+      //steps {
+        //git 'https://github.com/bharathvbk/unleash'
       }
     }
      
