@@ -13,7 +13,7 @@ pipeline {
      
     stage('Build') {
       steps {
-        sh 'npm install'
+        sh 'npm install unleash-server --save'
          sh '<<Build Command>>'
       }
     }  
