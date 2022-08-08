@@ -1,16 +1,9 @@
 pipeline {
   agent any
-    
-  tools {nodejs "nodejs16.16.0"}
-    
-  stages {
-      
-        stage('Git') {
-      steps {
-        git 'https://github.com/bharathvbk/unleash'
-      }
-    }
 
+  tools {nodejs 'node-8.10.0'} // previously configured via Manage Jenkins -> Global Tool Configuration
+
+  stages {
     stage('Unit') {
       steps {
         checkout scm
@@ -19,5 +12,6 @@ pipeline {
         sh 'npm install' // <-- desired change: 'yarn install'
         sh 'npm run test:unit' // <-- desired change: 'yarn test:unit'
       }
+    }
   }
 }
